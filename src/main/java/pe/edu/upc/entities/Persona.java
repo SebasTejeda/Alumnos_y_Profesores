@@ -1,13 +1,15 @@
 package main.java.pe.edu.upc.entities;
 
+import main.java.pe.edu.upc.entities.enums.Sexo;
+
 import java.util.Random;
 
 public class Persona {
     private String name;
     private int edad;
-    private String sexo;
+    private Sexo sexo;
 
-    public Persona(String name, int edad, String sexo) {
+    public Persona(String name, int edad, Sexo sexo) {
         this.name = name;
         this.edad = edad;
         this.sexo = sexo;
@@ -29,11 +31,11 @@ public class Persona {
         this.edad = edad;
     }
 
-    public String getSexo() {
+    public Sexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
 

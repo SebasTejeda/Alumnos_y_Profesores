@@ -1,13 +1,14 @@
 package main.java.pe.edu.upc.entities;
 
 import main.java.pe.edu.upc.entities.enums.Materias;
+import main.java.pe.edu.upc.entities.enums.Sexo;
 
 import java.util.Random;
 
 public class Profesor extends Persona{
     private Materias materia;
 
-    public Profesor(String name, int edad, String sexo, Materias materia) {
+    public Profesor(String name, int edad, Sexo sexo, Materias materia) {
         super(name, edad, sexo);
         this.materia = materia;
     }
