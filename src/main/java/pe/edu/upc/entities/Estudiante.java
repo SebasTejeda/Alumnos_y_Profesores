@@ -1,5 +1,7 @@
 package main.java.pe.edu.upc.entities;
 
+import java.util.Random;
+
 public class Estudiante extends Persona{
     private int nota;
 
@@ -21,5 +23,12 @@ public class Estudiante extends Persona{
         return "Estudiante{" +
                 "nota=" + nota +
                 '}';
+    }
+
+    @Override
+    public boolean Falto() {
+        Random r = new Random();
+        int aleatorio = 1 + r.nextInt(10);
+        return aleatorio <= 5;
     }
 }
