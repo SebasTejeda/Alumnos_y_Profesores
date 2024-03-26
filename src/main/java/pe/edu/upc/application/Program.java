@@ -29,7 +29,7 @@ public class Program {
         estudiantes.add(estudiante3);
         estudiantes.add(estudiante4);
 
-        Aula aula = new Aula(1234, 10, Materias.MATEMATICAS,profesor,
+        Aula aula = new Aula(1234, 8, Materias.MATEMATICAS,profesor,
                 estudiantes);
 
         if(aula.seDaraClases()){
