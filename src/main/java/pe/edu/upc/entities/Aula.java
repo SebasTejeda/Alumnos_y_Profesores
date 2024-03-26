@@ -10,15 +10,15 @@ public class Aula {
     private Materias materia;
 
     private Profesor profesor;
-    private List<Estudiante> estudiante;
+    private List<Estudiante> estudiantes;
 
     public Aula(int id, int maxEstudiantes, Materias materia, Profesor profesor,
-                List<Estudiante> estudiante) {
+                List<Estudiante> estudiantes) {
         this.id = id;
         this.maxEstudiantes = maxEstudiantes;
         this.materia = materia;
         this.profesor = profesor;
-        this.estudiante = estudiante;
+        this.estudiantes = estudiantes;
     }
 
     public int getId() {
@@ -53,12 +53,12 @@ public class Aula {
         this.profesor = profesor;
     }
 
-    public List<Estudiante> getEstudiante() {
-        return estudiante;
+    public List<Estudiante> getEstudiantes() {
+        return estudiantes;
     }
 
-    public void setEstudiante(List<Estudiante> estudiante) {
-        this.estudiante = estudiante;
+    public void setEstudiantes(List<Estudiante> estudiantes) {
+        this.estudiantes = estudiantes;
     }
 
     @Override
@@ -68,7 +68,16 @@ public class Aula {
                 ", maxEstudiantes=" + maxEstudiantes +
                 ", materia=" + materia +
                 ", profesor=" + profesor +
-                ", estudiante=" + estudiante +
+                ", estudiante=" + estudiantes +
                 '}';
+    }
+
+    public boolean seDaraClases(){
+        if(!this.profesor.Falto()){
+            if(this.profesor.getMateria() == this.materia){
+                return this.estudiantes.size() >= (this.maxEstudiantes / 2);
+            }
+        }
+        return false;
     }
 }
