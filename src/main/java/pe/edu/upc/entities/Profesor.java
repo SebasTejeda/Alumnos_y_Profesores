@@ -1,18 +1,20 @@
 package main.java.pe.edu.upc.entities;
 
-public class Profesor extends Persona{
-    private String materia;
+import main.java.pe.edu.upc.entities.enums.Materias;
 
-    public Profesor(String name, int edad, String sexo, String materia) {
+public class Profesor extends Persona{
+    private Materias materia;
+
+    public Profesor(String name, int edad, String sexo, Materias materia) {
         super(name, edad, sexo);
         this.materia = materia;
     }
 
-    public String getMateria() {
+    public Materias getMateria() {
         return materia;
     }
 
-    public void setMateria(String materia) {
+    public void setMateria(Materias materia) {
         this.materia = materia;
     }
 
