@@ -1,5 +1,7 @@
 package main.java.pe.edu.upc.entities;
 
+import java.util.Random;
+
 public class Persona {
     private String name;
     private int edad;
@@ -42,5 +44,9 @@ public class Persona {
                 ", edad=" + edad +
                 ", sexo='" + sexo + '\'' +
                 '}';
+    }
+
+    public boolean Falto(){
+        return true;
     }
 }
