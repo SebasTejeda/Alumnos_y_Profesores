@@ -2,6 +2,8 @@ package main.java.pe.edu.upc.entities;
 
 import main.java.pe.edu.upc.entities.enums.Materias;
 
+import java.util.Random;
+
 public class Profesor extends Persona{
     private Materias materia;
 
@@ -23,5 +25,12 @@ public class Profesor extends Persona{
         return "Profesor{" +
                 "materia='" + materia + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean Falto() {
+        Random r = new Random();
+        int probabilidad = 1 + r.nextInt(10);
+        return probabilidad <= 2;
     }
 }
