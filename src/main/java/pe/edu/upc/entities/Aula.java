@@ -1,6 +1,7 @@
 package main.java.pe.edu.upc.entities;
 
 import main.java.pe.edu.upc.entities.enums.Materias;
+import main.java.pe.edu.upc.entities.enums.Sexo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class Aula {
         this.materia = materia;
         this.profesor = profesor;
         this.estudiantes = estudiantes;
+        this.estudiantesPresentes = new ArrayList<>();
     }
 
     public int getId() {
@@ -81,7 +83,7 @@ public class Aula {
             if(this.profesor.getMateria() == this.materia){
                 for(Estudiante estudiante:this.estudiantes){
                     if(!estudiante.Falto()){
-                        estudiantesPresentes.add(estudiante);
+                        this.estudiantesPresentes.add(estudiante);
                     }
                 }
                 return estudiantesPresentes.size() >= (this.maxEstudiantes / 2);
@@ -90,13 +92,35 @@ public class Aula {
         return false;
     }
 
-    public List<String> aprobados(){
-        List<String> alumnosAprobados = new ArrayList<>();
-        for(Estudiante estudiante: estudiantesPresentes){
+    public List<String> alumnosAprobados(){
+        List<String> cadaAlumnoAprobado = new ArrayList<>();
+        for(Estudiante estudiante: this.estudiantesPresentes){
             if(estudiante.getNota() > 5){
-                alumnosAprobados.add(estudiante.getName());
+                if(estudiante.getSexo() == Sexo.M) {
+                    cadaAlumnoAprobado.add(estudiante.getName());
+                }
             }
         }
-        return alumnosAprobados;
+        return cadaAlumnoAprobado;
+    }
+
+    public List<String> alumnasAprobados(){
+        List<String> cadaAlumnaAprobada = new ArrayList<>();
+        for(Estudiante estudiante: this.estudiantesPresentes){
+            if(estudiante.getNota() > 5){
+                if(estudiante.getSexo() == Sexo.F) {
+                    cadaAlumnaAprobada.add(estudiante.getName());
+                }
+            }
+        }
+        return cadaAlumnaAprobada;
+    }
+
+    public List<Estudiante> getEstudiantesPresentes() {
+        return estudiantesPresentes;
+    }
+
+    public void setEstudiantesPresentes(List<Estudiante> estudiantesPresentes) {
+        this.estudiantesPresentes = estudiantesPresentes;
     }
 }
